@@ -4,7 +4,7 @@ import RequestCounter from "./components/RequestCounter";
 import { useRequests } from "./hooks/useRequests";
 
 export default function App() {
-  const { requests, addRequest } = useRequests();
+  const { requests, addRequest, toggleRequest } = useRequests();
 
   return (
     <>
@@ -18,7 +18,7 @@ export default function App() {
 
         {/* controles de la lista */}
 
-        <RequestList requests={requests} />
+        <RequestList requests={requests} onToggle={toggleRequest} />
         <RequestCounter requests={requests} />
       </main>
 

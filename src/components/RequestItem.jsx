@@ -1,8 +1,15 @@
-export default function RequestItem({ request }) {
+export default function RequestItem({ request, onToggle }) {
   return (
     <li>
-      <span className="marker">○</span>
-      <span className="title">{request.title}</span>
+      <button
+        type="button"
+        className="check"
+        aria-label={request.approved ? "Marcar como pendiente" : "Marcar como aprobada"}
+        onClick={() => onToggle(request.id)}
+      >
+        {request.approved ? "●" : "○"}
+      </button>
+      <span className={request.approved ? "title done" : "title"}>{request.title}</span>
     </li>
   );
 }

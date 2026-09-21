@@ -1,6 +1,6 @@
 import RequestItem from "./RequestItem";
 
-export default function RequestList({ requests }) {
+export default function RequestList({ requests, onToggle }) {
   if (requests.length === 0) {
     return (
       <ul>
@@ -12,7 +12,7 @@ export default function RequestList({ requests }) {
   return (
     <ul>
       {requests.map((request) => (
-        <RequestItem key={request.id} request={request} />
+        <RequestItem key={request.id} request={request} onToggle={onToggle} />
       ))}
     </ul>
   );
